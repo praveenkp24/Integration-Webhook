@@ -5,12 +5,14 @@
 </head>
 <body>
     <h2>Server Running</h2>
-    <div id="payload">Waiting for data...</div>
+    <pre id="payload">Waiting for data...</pre>
 
     <script>
+        const backendURL = "https://praveenkp24.github.io/Integration-Webhook/"; // replace with your deployed backend URL
+
         async function fetchPayload() {
             try {
-                const response = await fetch('/data');
+                const response = await fetch(`${backendURL}/data`);
                 const data = await response.json();
                 document.getElementById('payload').textContent = JSON.stringify(data, null, 2);
             } catch (err) {
@@ -18,9 +20,8 @@
             }
         }
 
-        // Poll the server every 1 second for new data
         setInterval(fetchPayload, 1000);
-        fetchPayload(); // initial load
+        fetchPayload();
     </script>
 </body>
 </html>
