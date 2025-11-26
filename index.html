@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Payload Viewer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhook Payload Viewer</title>
 </head>
 <body>
     <h2>Server Running</h2>
-    <pre id="payload">Waiting for data...</pre>
+    <pre id="payload">Waiting for payload...</pre>
 
     <script>
-        const backendURL = "https://praveenkp24.github.io/Integration-Webhook/"; // replace with your deployed backend URL
+        // Replace with your Render backend URL
+        const backendURL = "https://YOUR_RENDER_BACKEND_URL";
 
         async function fetchPayload() {
             try {
@@ -20,8 +23,9 @@
             }
         }
 
+        // Poll backend every second
         setInterval(fetchPayload, 1000);
-        fetchPayload();
+        fetchPayload(); // initial load
     </script>
 </body>
 </html>
